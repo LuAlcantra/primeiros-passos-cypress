@@ -1,3 +1,5 @@
+import userData from '/cypress/fixtures/user-data.json'
+
 //nome do nosso teste
 describe('Orange HRM Tests', () => {
 
@@ -17,9 +19,9 @@ describe('Orange HRM Tests', () => {
   cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
    
   //* fill in the form(preenchendo o formulario) 
-  cy.get(selectorsList.usernamaField).type('Admin')
+  cy.get(selectorsList.usernamaField).type(userData.userSuccess.usarname)
 
-  cy.get(selectorsList.passwordField).type('admin123')
+  cy.get(selectorsList.passwordField).type(userData.userSuccess.password)
 
   //submit the form(enviando formulario)
   cy.get(selectorsList.loginButton).click();
@@ -37,8 +39,8 @@ describe('Orange HRM Tests', () => {
     //site que vamos testar,na pagina de login
   cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
    //fill in the form(preenchendo o formulario) 
-  cy.get(selectorsList.usernamaField).type('Admim')
-  cy.get(selectorsList.passwordField).type('admin12')
+  cy.get(selectorsList.usernamaField).type(userData.userFail.username)
+  cy.get(selectorsList.passwordField).type(userData.userFail.password)
    //submit the form(enviando formulario)
   cy.get(selectorsList.loginButton).click();
   cy.get(selectorsList.wrongCredentialAlert)
