@@ -16,7 +16,7 @@ describe('Orange HRM Tests', () => {
   it('Login Success', () =>{   
 
     //* site que vamos testar,na pagina de login
-  cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+  cy.visit('/auth/login')
    
   //* fill in the form(preenchendo o formulario) 
   cy.get(selectorsList.usernamaField).type(userData.userSuccess.usarname)
